@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaUser, FaEnvelope, FaPhone, FaArrowRight, FaSpinner, FaSmile } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaPhone, FaArrowRight, FaSpinner } from 'react-icons/fa';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, addDoc, query, where, orderBy, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { FaCheckCircle } from 'react-icons/fa';
 
 
@@ -39,7 +39,6 @@ const ConversationalAuth = () => {
     phone: ''
   });
   const [currentError, setCurrentError] = useState('');
-  const [queuePosition, setQueuePosition] = useState(null);
   const [registrationComplete, setRegistrationComplete] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const navigate = useNavigate();
@@ -101,7 +100,6 @@ const ConversationalAuth = () => {
   
         // Skip the queue position logic and show confirmation immediately
         setMessage(`🎉 Thank you, ${userData.name}! Your registration is complete.`);
-        setQueuePosition(1); // Dummy queue position for UI
         setLoading(false);
         setRegistrationComplete(true);
         setShowSuccessMessage(true);
