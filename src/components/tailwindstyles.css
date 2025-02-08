@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Styles */
+.bg-gradient-custom {
+  @apply bg-gradient-to-b from-sky-100 to-white;
+}
+
+.text-custom-gray {
+  @apply text-gray-700;
+}
+
+.text-custom-blue {
+  @apply text-blue-700;
+}
+
+/* Adjusted Padding to Avoid Circular Dependency */
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@screen md {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.px-custom {
+  @apply px-4 sm:px-6 md:px-12;
+}
+
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+.grid-responsive {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6;
+}
+
+.border-custom {
+  @apply border-b-2 border-gray-300;
+}
+
+.link-custom {
+  @apply text-gray-600 hover:text-blue-700;
+}
+
+.transition-custom {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.hover-scale:hover {
+  @apply transform scale-105;
+}
+
+.group-hover-scale {
+  @apply group-hover:scale-110;
+}
+
+.icon-custom {
+  @apply w-6 h-6;
+}
+
+.decorative-blur {
+  @apply opacity-25 blur-lg;
+}
+
+/* Ensuring No Horizontal Scrolling */
+html, body {
+  @apply overflow-x-hidden;
+}
+
+
+@layer components {
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s infinite;
+  }
+
+  @keyframes bounceGentle {
+    0%, 100% {
+      transform: translateY(-10%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+      transform: translateY(0);
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Custom utility classes */
+.animate-scale-up {
+  animation: scaleUp 0.5s ease-out;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+}
+
+/* Custom animations */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Custom styles for header */
+.header-container {
+  @apply relative top-0 w-full z-50 transition-all duration-300;
+  background: linear-gradient(to right, #ffffff, #f3e5f5);
+}
+
+.shadow {
+  @apply shadow-lg;
+}
+
+.header-wrapper {
+  @apply container mx-auto px-4 py-4;
+}
+
+.header-content {
+  @apply flex justify-between items-center;
+}
+
+/* Logo Group */
+.logo-group {
+  @apply flex items-center space-x-2 cursor-pointer;
+}
+
+.logo-group:hover .logo {
+  transform: rotate(12deg) scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo {
+  @apply w-8 h-8;
+}
+
+.logo-text {
+  @apply text-xl font-bold text-[#3d9bcb] transition-colors duration-300;
+}
+
+.logo-group:hover .logo-text {
+  color: #0078a6;
+}
+
+/* Navigation */
+.nav-menu {
+  @apply hidden md:flex items-center space-x-10;
+}
+
+.nav-list {
+  @apply flex space-x-10;
+}
+
+.nav-link {
+  @apply text-[#4f9fb8] text-lg font-semibold transition-colors duration-300 relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0078a6;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #0078a6;
+}
+
+/* Buttons */
+.button-group {
+  @apply hidden md:flex items-center space-x-6;
+}
+
+.btn-primary {
+  @apply bg-[#0078a6] text-white text-sm font-semibold px-3 py-1.5 rounded-lg transition-transform duration-300;
+}
+
+.btn-primary:hover {
+  @apply bg-[#00628a] scale-105;
+}
+
+.btn-outline {
+  @apply bg-[#eaf6ff] border border-[#0078a6] text-[#0078a6] text-sm font-semibold px-3 py-1.5 rounded-lg transition-transform duration-300;
+}
+
+.btn-outline:hover {
+  @apply bg-[#0078a6] text-white scale-105;
+}
+
+.btn-danger {
+  @apply bg-red-500 text-white text-sm font-semibold px-3 py-1.5 rounded-lg transition-colors duration-300;
+}
+
+.btn-danger:hover {
+  @apply bg-red-600;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+  @apply md:hidden text-[#4f9fb8] text-2xl;
+}
+
+.mobile-nav {
+  @apply md:hidden transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0;
+}
+
+.mobile-nav.open {
+  @apply max-h-96 opacity-100;
+}
+
+.mobile-nav-list {
+  @apply flex flex-col space-y-4;
+}
+
+.mobile-button-group {
+  @apply pt-2 flex flex-col space-y-2;
+}
+
+/* Section animation */
+.not-animated {
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-section {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.animate-card {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.slide-in-right {
+  opacity: 0;
+  animation: slideRight 0.5s ease-out forwards;
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+@media (min-width: 768px) {
+  .not-animated > div:first-child {
+    transform: translateX(-50px);
+  }
+  .not-animated > div:last-child {
+    transform: translateX(50px);
+  }
+  .animate-section > div {
+    transform: translateX(0) !important;
+  }
+}
