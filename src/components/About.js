@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTwitter, FaLinkedinIn, FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
-import { MdMail, MdPhone, MdLocationOn, MdAccessTime } from "react-icons/md";
+import { MdMail, MdLocationOn, MdAccessTime } from "react-icons/md";
 import logo from "./logo.jpg";
 import "./tailwindstyles.css";
 
