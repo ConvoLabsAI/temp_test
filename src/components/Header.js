@@ -13,14 +13,18 @@ const Header = () => {
   useEffect(() => {
     const checkAuth = () => {
       const authStatus = localStorage.getItem("isAuthenticated");
-      setIsAuthenticated(authStatus === "true");
+      const userEmail = localStorage.getItem("userEmail");
+      setIsAuthenticated(authStatus === "true" && userEmail);
     };
 
     checkAuth();
     window.addEventListener("storage", checkAuth);
+    // Add custom event listener for auth changes
+    window.addEventListener("authChange", checkAuth);
 
     return () => {
       window.removeEventListener("storage", checkAuth);
+      window.removeEventListener("authChange", checkAuth);
     };
   }, []);
 
@@ -45,8 +49,10 @@ const Header = () => {
   };
 
   const handleSignOut = () => {
-    setIsAuthenticated(false);
     localStorage.setItem("isAuthenticated", "false");
+    localStorage.removeItem("userEmail");
+    setIsAuthenticated(false);
+    window.dispatchEvent(new Event("authChange"));
     navigate("/signin");
   };
 
@@ -64,7 +70,7 @@ const Header = () => {
         <div className="header-content">
           <div className="logo-group" onClick={handleLogoClick}>
             <img src={logo} alt="Logo" className="logo" />
-            <div className="logo-text">Convolabs</div>
+            <div className="logo-text">ConvolabsAI</div>
           </div>
 
           {/* Desktop Navigation */}
@@ -72,7 +78,7 @@ const Header = () => {
             <ul className="nav-list">
               {[
                 { href: "#aiagents", label: "AIAgents" },
-                { href: "#data", label: "Data" },
+                { href: "#pricing", label: "Pricing" },
                 { href: "#docs", label: "Docs" },
                 { href: "#features", label: "Blogs" },
                 { href: "/careers", label: "Careers", isExternal: true },
@@ -99,10 +105,9 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Desktop Buttons (Shifted Right) */}
+          {/* Desktop Buttons */}
           <div className="button-group">
-            {/* Commenting Sign In/Sign Out buttons */}
-            {/* {isAuthenticated ? (
+            {isAuthenticated && (
               <>
                 <button onClick={handleDashClick} className="btn-primary">
                   Dash
@@ -111,11 +116,7 @@ const Header = () => {
                   Sign Out
                 </button>
               </>
-            ) : (
-              <Link to="/signin" className="btn-outline">
-                Sign In
-              </Link>
-            )} */}
+            )}
             <button onClick={handleBookDemo} className="btn-primary">
               Join the Waitlist
             </button>
@@ -158,8 +159,7 @@ const Header = () => {
                 </li>
               ))}
               <li className="mobile-button-group">
-                {/* Commenting Sign In/Sign Out buttons */}
-                {/* {isAuthenticated ? (
+                {isAuthenticated && (
                   <>
                     <button onClick={handleDashClick} className="btn-primary">
                       Dash
@@ -168,11 +168,7 @@ const Header = () => {
                       Sign Out
                     </button>
                   </>
-                ) : (
-                  <Link to="/signin" className="btn-outline">
-                    Sign In
-                  </Link>
-                )} */}
+                )}
                 <button onClick={handleBookDemo} className="btn-primary">
                   Book a Demo
                 </button>

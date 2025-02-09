@@ -24,7 +24,7 @@ const AboutUs = () => {
             <div className="space-y-6">
               <div className="flex items-center link-custom transition-custom group">
                 <MdLocationOn className="icon-custom mr-3 text-custom-blue group-hover-scale" />
-                <p className="text-base">123 AI Innovation Drive, Tech City, India</p>
+                <p className="text-base">IIT Hyderabad, India</p>
               </div>
               <div className="flex items-center link-custom transition-custom group">
                 <MdAccessTime className="icon-custom mr-3 text-custom-blue group-hover-scale" />
@@ -66,18 +66,16 @@ const AboutUs = () => {
                 <li>
                   <a href="mailto:sales@convolabs.ai" className="flex items-center link-custom transition-custom group">
                     <MdMail className="icon-custom mr-3 text-custom-blue group-hover-scale" />
-                    <span>sales@convolabs.ai</span>
+                    <span>convolabsai@gmail.com</span>
                   </a>
                 </li>
-                <li>
-                  <a href="tel:+919999999999" className="flex items-center link-custom transition-custom group">
-                    <MdPhone className="icon-custom mr-3 text-custom-blue group-hover-scale" />
-                    <span>+91 99999 99999</span>
-                  </a>
-                </li>
+                
                 <li>
                   <div className="flex items-center space-x-4">
-                    {[FaTwitter, FaLinkedinIn, FaFacebook, FaGithub, FaInstagram].map((Icon, index) => (
+                    <a href="https://www.linkedin.com/company/convolabs-ai/" target="_blank" rel="noopener noreferrer" className="link-custom transition-custom hover-scale">
+                      <FaLinkedinIn className="icon-custom" />
+                    </a>
+                    {[FaTwitter, FaFacebook, FaGithub, FaInstagram].map((Icon, index) => (
                       <a key={index} href="#" className="link-custom transition-custom hover-scale">
                         <Icon className="icon-custom" />
                       </a>

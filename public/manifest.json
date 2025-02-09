@@ -1,6 +1,6 @@
 {
-  "short_name": "ConvoLabs AI",
-  "name": "Create ConvoLabs AI Sample",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",

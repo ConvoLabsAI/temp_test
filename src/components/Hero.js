@@ -71,9 +71,9 @@ function Hero() {
 
           {/* Description - Adjusted padding and font sizes */}
           <p className="text-base sm:text-lg md:text-xl mb-8 md:mb-12 text-gray-700 leading-relaxed px-4">
-            <span className="block">Convolabs.AI taps into the full potential</span>
+            <span className="block">Empowering Innovation with AI: </span>
             <span className="block">
-              of enterprise data to develop reliable Generative AI Solutions you can count on.
+            Tailored Solutions for your organizations, Intelligence and Growth.
             </span>
           </p>
 
@@ -111,7 +111,7 @@ function Hero() {
           </div>
 
           {/* Stats Grid - Improved grid responsiveness */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-10 max-w-4xl mx-auto px-4">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-10 max-w-4xl mx-auto px-4">
             {[
               { icon: FaProjectDiagram, color: "blue", count: "500+", label: "Projects" },
               { icon: FaRegComment, color: "purple", count: "1,700,000+", label: "Annotations" },
@@ -126,7 +126,7 @@ function Hero() {
                 <p className="text-base md:text-lg text-gray-600">{stat.label}</p>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

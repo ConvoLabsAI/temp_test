@@ -202,26 +202,21 @@ html, body {
 }
 
 .logo-text {
-  @apply text-xl font-bold text-[#3d9bcb] transition-colors duration-300;
+  @apply text-xl font-bold text-gray-800 transition-colors duration-300;
 }
-
 .logo-group:hover .logo-text {
-  color: #0078a6;
+  @apply text-gray-900;
 }
-
 /* Navigation */
 .nav-menu {
   @apply hidden md:flex items-center space-x-10;
 }
-
 .nav-list {
   @apply flex space-x-10;
 }
-
 .nav-link {
-  @apply text-[#4f9fb8] text-lg font-semibold transition-colors duration-300 relative;
+  @apply text-gray-800 text-lg font-semibold transition-colors duration-300 relative;
 }
-
 .nav-link::after {
   content: "";
   position: absolute;
@@ -229,66 +224,70 @@ html, body {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #0078a6;
+  @apply bg-gray-800;
   transition: width 0.3s ease-in-out;
 }
-
 .nav-link:hover::after {
   width: 100%;
 }
-
 .nav-link:hover {
-  color: #0078a6;
+  @apply text-gray-900;
 }
-
 /* Buttons */
 .button-group {
   @apply hidden md:flex items-center space-x-6;
 }
-
 .btn-primary {
-  @apply bg-[#0078a6] text-white text-sm font-semibold px-3 py-1.5 rounded-lg transition-transform duration-300;
+  @apply bg-gray-800 text-white text-sm font-semibold px-3 py-1.5 rounded-lg transition-transform duration-300;
 }
-
 .btn-primary:hover {
-  @apply bg-[#00628a] scale-105;
+  @apply bg-gray-900 scale-105;
 }
-
 .btn-outline {
-  @apply bg-[#eaf6ff] border border-[#0078a6] text-[#0078a6] text-sm font-semibold px-3 py-1.5 rounded-lg transition-transform duration-300;
+  @apply bg-gray-100 border border-gray-800 text-gray-800 text-sm font-semibold px-3 py-1.5 rounded-lg transition-all duration-300;
 }
-
 .btn-outline:hover {
-  @apply bg-[#0078a6] text-white scale-105;
+  @apply bg-gray-800 text-white scale-105;
 }
-
 .btn-danger {
   @apply bg-red-500 text-white text-sm font-semibold px-3 py-1.5 rounded-lg transition-colors duration-300;
 }
-
 .btn-danger:hover {
   @apply bg-red-600;
 }
-
 /* Mobile Menu */
 .menu-toggle {
-  @apply md:hidden text-[#4f9fb8] text-2xl;
+  @apply md:hidden text-gray-800 text-2xl;
 }
-
 .mobile-nav {
   @apply md:hidden transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0;
 }
-
 .mobile-nav.open {
   @apply max-h-96 opacity-100;
 }
-
 .mobile-nav-list {
   @apply flex flex-col space-y-4;
 }
-
+.mobile-nav-link {
+  @apply text-gray-800 text-lg font-semibold transition-colors duration-300;
+}
+.mobile-nav-link:hover {
+  @apply text-gray-900;
+}
 .mobile-button-group {
   @apply pt-2 flex flex-col space-y-2;
+}
+.mobile-btn-primary {
+  @apply bg-gray-800 text-white text-sm font-semibold px-3 py-1.5 rounded-lg transition-transform duration-300;
+}
+.mobile-btn-primary:hover {
+  @apply bg-gray-900 scale-105;
+}
+.mobile-btn-outline {
+  @apply bg-gray-100 border border-gray-800 text-gray-800 text-sm font-semibold px-3 py-1.5 rounded-lg transition-all duration-300;
+}
+.mobile-btn-outline:hover {
+  @apply bg-gray-800 text-white scale-105;
 }
 
 /* Section animation */
