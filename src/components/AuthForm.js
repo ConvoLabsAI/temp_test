@@ -148,11 +148,10 @@ const ConversationalAuth = () => {
         <h3 className="text-3xl font-bold text-purple-700 mb-4">{message}</h3>
         <div className="bg-purple-50 rounded-lg p-6 mb-6 animate-slide-up">
           <p className="text-lg text-gray-700 mb-4">
-          ongratulations!, You are registered for the waiting list! 🎉
+          Congratulations!, You are registered for the waiting list! 🎉
           </p>
           <p className="text-gray-600 mb-2">We will contact you at: {userData.phone}</p>
-          <p className="text-gray-600 mb-4">Updates will be sent to: {userData.email}</p>
-          <p className="text-sm text-purple-600">ur AI Agent Will call you once it is Alive!</p>
+          <p className="text-sm text-purple-600">Our AI Agent Will call you once it is Alive!</p>
         </div>
         <button
           onClick={() => navigate('/dashboard')}
